@@ -31,7 +31,7 @@ class App extends Component {
 
   //this is a simple swapping function that is used within the anagram finder
   swap(chars, a, b) {
-    var temp = chars[a];
+    let temp = chars[a];
     chars[a] = chars[b];
     chars[b] = temp;
   }
@@ -39,7 +39,7 @@ class App extends Component {
   //in order to get the anagrams, a bit of logic is used in conjunction with the swap function above
   runAnagram() {
     let word = this.state.inputVal;
-    var counter = [],
+    let counter = [],
       anagrams = [],
       chars = word.split(''),
       length = chars.length,
