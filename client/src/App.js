@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 
 //this is a class component that will be used for our frontend
+//while i could have broken this into multiple components, i used a single one, since it all was based off of the single action of one button click
 class App extends Component {
+  //because we are going to do some configuring to the state, we need to use the constructor and super in this component
   constructor() {
     super();
 
@@ -27,12 +29,14 @@ class App extends Component {
     });
   };
 
+  //this is a simple swapping function that is used within the anagram finder
   swap(chars, a, b) {
     var temp = chars[a];
     chars[a] = chars[b];
     chars[b] = temp;
   }
 
+  //in order to get the anagrams, a bit of logic is used in conjunction with the swap function above
   runAnagram() {
     let word = this.state.inputVal;
     var counter = [],
@@ -57,6 +61,8 @@ class App extends Component {
       }
     }
  
+    //in order to order by the second letter, i had to create two different constants, one filtering out the [1] letter and sorting it prior to the rest of the letters.
+    //These anagrams are then returned sequentially down in the return statement
     const anagramsBySecondLetter = anagrams.filter(word => this.state.inputVal[1] === word[0]).sort().map((word, i) => <li className="list-group-item" key={i}>{word}</li>);
     const anagramsRest = anagrams.filter(word => this.state.inputVal[1] !== word[0]).sort().map((word, i) => <li className="list-group-item" key={i}>{word}</li>);
     const anagramLength = anagrams.length
@@ -74,6 +80,8 @@ class App extends Component {
     if (existsInArray === true) {
       this.runAnagram();
     } else {
+      //the following sets the field of retrieved anagrams back to blanks
+      //it only runs if a word is not found in the dictionary
       this.setState({
         display: 'None: Does Not Exist in Dictionary',
         anagramsBySecondLetter: '',

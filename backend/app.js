@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var wordsRouter = require('./routes/words');
 
+//i ran a simple express app to give me a way to access the api that contained the words from the dictionary.txt file
 var app = express();
 
 // view engine setup
