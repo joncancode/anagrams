@@ -42,10 +42,10 @@ Since there was really one call-to-action that was needed (finding anagrams), th
 
 ## Libraries Used 
 
-⋅⋅* **React** - for its amazing UI prowess and virtual DOM speed\
-⋅⋅* **Node / Express** - for its ease of connecting an API/routing and compatibility with React\
-⋅⋅* **Bootstrap** - for styling purposes\
-⋅⋅* **Enzyme** - for testing\
+⋅⋅* **React** - for its amazing UI prowess and virtual DOM speed⋅⋅
+⋅⋅* **Node / Express** - for its ease of connecting an API/routing and compatibility with React⋅⋅
+⋅⋅* **Bootstrap** - for styling purposes⋅⋅
+⋅⋅* **Enzyme** - for testing⋅⋅
 
 ## Testing 
 
