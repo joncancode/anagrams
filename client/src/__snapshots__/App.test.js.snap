@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`general <App/> component matches our snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1
+          className="card-title"
+        >
+          Fluent Anagram Finder
+        </h1>,
+        <input
+          onChange={[Function]}
+          type="text"
+          value=""
+        />,
+        <button
+          className="btn btn-primary"
+          onClick={[Function]}
+        >
+          Press for Anagrams
+        </button>,
+        <h3>
+          
+        </h3>,
+        <p />,
+        undefined,
+        undefined,
+      ],
+      "className": "App",
+      "style": Object {
+        "paddingTop": "10%",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Fluent Anagram Finder",
+          "className": "card-title",
+        },
+        "ref": null,
+        "rendered": "Fluent Anagram Finder",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "onChange": [Function],
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Press for Anagrams",
+          "className": "btn btn-primary",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Press for Anagrams",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "",
+        },
+        "ref": null,
+        "rendered": "",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "p",
+      },
+      undefined,
+      undefined,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1
+            className="card-title"
+          >
+            Fluent Anagram Finder
+          </h1>,
+          <input
+            onChange={[Function]}
+            type="text"
+            value=""
+          />,
+          <button
+            className="btn btn-primary"
+            onClick={[Function]}
+          >
+            Press for Anagrams
+          </button>,
+          <h3>
+            
+          </h3>,
+          <p />,
+          undefined,
+          undefined,
+        ],
+        "className": "App",
+        "style": Object {
+          "paddingTop": "10%",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Fluent Anagram Finder",
+            "className": "card-title",
+          },
+          "ref": null,
+          "rendered": "Fluent Anagram Finder",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "onChange": [Function],
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Press for Anagrams",
+            "className": "btn btn-primary",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Press for Anagrams",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "",
+          },
+          "ref": null,
+          "rendered": "",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "p",
+        },
+        undefined,
+        undefined,
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
