@@ -38,7 +38,7 @@ In order to order by the second letter, all anagrams are then filtered into two 
 
 I knew that React would be used, since it is fast and would allow for an interface. Since we would need to connect to an API, I used Express since it was a quick set-up. Django would have been another good choice, but Express felt more lightweight for what the project asked for.
 
-Since there was really one call-to-action that was needed (finding anagrams), there was no real need for multiple components. More on this in the next section. 
+Since there was really one call-to-action that was needed (finding anagrams), there was no real need for multiple components, so only a List component was added. 
 
 ## Libraries Used 
 
@@ -61,4 +61,3 @@ This was put together in a couple nights, so it does have a few pitfalls. One no
 
 I would add more testing, especially on the backend.
 
-I would have broken the List out into a separate component, but since it didn't structurally make a difference, the list was left in the <App/> component.
