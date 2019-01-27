@@ -40,6 +40,7 @@ class App extends Component {
   //in order to get the anagrams, a bit of logic is used in conjunction with the swap function above
   runAnagram = () => {
     let word = this.state.inputVal;
+    let secondLetter = this.state.inputVal[1];
     let counter = [],
       anagrams = [],
       chars = word.split(''),
@@ -62,31 +63,27 @@ class App extends Component {
       }
     }
 
-    //in order to order by the second letter, i had to create two different constants, one filtering out the [1] letter and sorting it prior to the rest of the letters.
-    //These anagrams are then returned sequentially down in the return statement
-    const anagramsBySecondLetter = anagrams
-      .filter(word => this.state.inputVal[1] === word[0])
-      .sort();
-    const uniq = [...new Set(anagramsBySecondLetter)].map((word, i) => (
-      <li className="list-group-item" key={i}>
-        {word}
-      </li>
-    ));
-    const anagramsRest = anagrams
-      .filter(word => this.state.inputVal[1] !== word[0])
-      .sort();
-    const uniqRest = [...new Set(anagramsRest)].map((word, i) => (
-      <li className="list-group-item" key={i}>
-        {word}
-      </li>
-    ));
+    //in order to create a list, i first had to filter out non-unique values
+    //then, using the sort method, i ordered them by the second letter
+    //finally, i mapped each value to it's own list item
+    let anagramsUnique = anagrams
+      .filter((item, index) => {
+        return anagrams.indexOf(item) >= index;
+      })
+      .sort((a, b) => {
+        return a.indexOf(secondLetter) - b.indexOf(secondLetter);
+      })
+      .map((word, i) => (
+        <li className="list-group-item" key={i}>
+          {word}
+        </li>
+      ));
 
-    const sortedAnagrams = [...uniq, ...uniqRest];
-    const anagramLength = sortedAnagrams.length;
+    const anagramLength = anagramsUnique.length;
 
     this.setState({
-      display: `You have ${anagramLength} total anagrams`,
-      sortedAnagrams
+      display: `Total Anagrams: ${anagramLength}`,
+      anagramsUnique: anagramsUnique
     });
   };
 
@@ -120,9 +117,9 @@ class App extends Component {
           Press for Anagrams
         </button>
         <h3>{this.state.inputVal}</h3>
-        <p>{this.state.display}</p>
+        <h4>{this.state.display}</h4>
         {/* the List component below will hold the anagrams created as props */}
-        <List sortedAnagrams={this.state.sortedAnagrams} />
+        <List sortedAnagrams={this.state.anagramsUnique} />
       </div>
     );
   }
