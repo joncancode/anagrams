@@ -66,26 +66,27 @@ class App extends Component {
     //These anagrams are then returned sequentially down in the return statement
     const anagramsBySecondLetter = anagrams
       .filter(word => this.state.inputVal[1] === word[0])
-      .sort()
-      .map((word, i) => (
-        <li className="list-group-item" key={i}>
-          {word}
-        </li>
-      ));
+      .sort();
+    const uniq = [...new Set(anagramsBySecondLetter)].map((word, i) => (
+      <li className="list-group-item" key={i}>
+        {word}
+      </li>
+    ));
     const anagramsRest = anagrams
       .filter(word => this.state.inputVal[1] !== word[0])
-      .sort()
-      .map((word, i) => (
-        <li className="list-group-item" key={i}>
-          {word}
-        </li>
-      ));
-    const anagramLength = anagrams.length;
+      .sort();
+    const uniqRest = [...new Set(anagramsRest)].map((word, i) => (
+      <li className="list-group-item" key={i}>
+        {word}
+      </li>
+    ));
+
+    const sortedAnagrams = [...uniq, ...uniqRest];
+    const anagramLength = sortedAnagrams.length;
 
     this.setState({
       display: `You have ${anagramLength} total anagrams`,
-      anagramsBySecondLetter,
-      anagramsRest
+      sortedAnagrams
     });
   };
 
@@ -121,10 +122,7 @@ class App extends Component {
         <h3>{this.state.inputVal}</h3>
         <p>{this.state.display}</p>
         {/* the List component below will hold the anagrams created as props */}
-        <List 
-        anagramsBySecondLetter={this.state.anagramsBySecondLetter}
-        anagramsRest={this.state.anagramsRest}
-        />
+        <List sortedAnagrams={this.state.sortedAnagrams} />
       </div>
     );
   }

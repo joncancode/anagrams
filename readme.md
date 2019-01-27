@@ -1,6 +1,6 @@
 # The Anagram Finder
 
-![Anagram screenshot](https://media.giphy.com/media/DC5oCoIwtrR6CfxDaB/giphy.gif "The Anagram Finder")
+![Anagram screenshot](https://media.giphy.com/media/1ZmXiisfd4GtFkIYT0/giphy.gif "The Anagram Finder")
 
 ## Getting Started
 
