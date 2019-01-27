@@ -32,7 +32,7 @@ The component’s state is updated every time the input field changes. When the 
 
 If it does not exist in the array, we’re done. The state changes to mention it’s not contained in the dictionary. However, if the word does exist in the area, all possible anagrams are then calculated.
 
-In order to order by the second letter, all anagrams are then filtered into two separated variables, which are passed into the state, which orders the anagramsBySecondLetter list before the rest.
+In order to order by the second letter, all anagrams are then filtered into two separated variables, half sorted starting alphabetically with the second letter and the other half sorted alphabetically before the second letter. Then, using a spread operator, they are ordered so that the second letter precedes all others.
 
 ## Why This Approach Was Made
 
@@ -42,10 +42,11 @@ Since there was really one call-to-action that was needed (finding anagrams), th
 
 ## Libraries Used 
 
-⋅⋅* **React** - for its amazing UI prowess and virtual DOM speed⋅⋅
-⋅⋅* **Node / Express** - for its ease of connecting an API/routing and compatibility with React⋅⋅
-⋅⋅* **Bootstrap** - for styling purposes⋅⋅
-⋅⋅* **Enzyme** - for testing⋅⋅
+- **React** - for its amazing UI prowess and virtual DOM speed
+- **Node / Express** - for its ease of connecting an API/routing and compatibility with React
+- **Bootstrap** - for styling purposes
+- **Enzyme** - for testing on the client side
+- **Mocha** and **Supertest** - for testing on the backend
 
 ## Testing 
 
@@ -53,7 +54,13 @@ Testing can be performed while in the **/client** folder by running:
 
 `npm test`
 
-I would have loved to add more testing if timing allowed. My tests are mainly to check the instances of the React methods. More testing could have been added for Routing on the backend.
+The client-side uses enzyme to test instances of React methods.
+
+Similarly, testing can be performed while in the **/backend** folder by running:
+
+`npm test`
+
+The backend tests that the /words route is correctly called and the data from the api is successfully called. It uses **Mocha** and **Supertest** to check this.
 
 ## Some Features if More Time Were Given
 
