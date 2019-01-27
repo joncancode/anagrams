@@ -40,7 +40,6 @@ class App extends Component {
   //in order to get the anagrams, a bit of logic is used in conjunction with the swap function above
   runAnagram = () => {
     let word = this.state.inputVal;
-    let secondLetter = this.state.inputVal[1];
     let counter = [],
       anagrams = [],
       chars = word.split(''),
@@ -63,27 +62,40 @@ class App extends Component {
       }
     }
 
-    //in order to create a list, i first had to filter out non-unique values
-    //then, using the sort method, i ordered them by the second letter
-    //finally, i mapped each value to it's own list item
-    let anagramsUnique = anagrams
-      .filter((item, index) => {
-        return anagrams.indexOf(item) >= index;
-      })
-      .sort((a, b) => {
-        return a.indexOf(secondLetter) - b.indexOf(secondLetter);
-      })
-      .map((word, i) => (
+    //in order to create a list, I first had to filter out non-unique values
+    let anagramsUnique = anagrams.filter((item, index) => {
+      return anagrams.indexOf(item) >= index;
+    });
+
+    //then, using the sort method, I made two separate separate arrays based off of the [1] index
+    //both of these were sorted, but the array that starts with the second letter is ordered first
+    //this way, the anagrams are alphabetical order, but starting with the second letter of the original word
+    let bySecondLetter = [];
+    let notBySecondLetter = [];
+    for (let i = 0; i < anagramsUnique.length; i++) {
+      if (anagramsUnique[i][0] >= anagramsUnique[0][1]) {
+        bySecondLetter.push(anagramsUnique[i]);
+      } else {
+        notBySecondLetter.push(anagramsUnique[i]);
+      }
+      notBySecondLetter.sort();
+      bySecondLetter.sort();
+    }
+    let sortedAnagrams = [...bySecondLetter, ...notBySecondLetter]
+        //finally, i mapped each value to it's own list item
+    .map(
+      (word, i) => (
         <li className="list-group-item" key={i}>
           {word}
         </li>
-      ));
+      )
+    );
 
-    const anagramLength = anagramsUnique.length;
+    const anagramLength = sortedAnagrams.length;
 
     this.setState({
       display: `Total Anagrams: ${anagramLength}`,
-      anagramsUnique: anagramsUnique
+      sortedAnagrams
     });
   };
 
@@ -97,8 +109,7 @@ class App extends Component {
       //it only runs if a word is not found in the dictionary
       this.setState({
         display: 'None: Does Not Exist in Dictionary',
-        anagramsBySecondLetter: '',
-        anagramsRest: ''
+        sortedAnagrams: ''
       });
     }
   };
@@ -119,7 +130,7 @@ class App extends Component {
         <h3>{this.state.inputVal}</h3>
         <h4>{this.state.display}</h4>
         {/* the List component below will hold the anagrams created as props */}
-        <List sortedAnagrams={this.state.anagramsUnique} />
+        <List sortedAnagrams={this.state.sortedAnagrams} />
       </div>
     );
   }
